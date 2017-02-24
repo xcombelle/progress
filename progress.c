@@ -772,7 +772,7 @@ for (i = 0 ; i < pid_count ; i++) {
         if (flag_open_mode == PM_WRITE && fdinfo.mode != PM_WRITE && fdinfo.mode != PM_READWRITE)
             continue;
 
-        if (fdinfo.size > max_size) {
+        if (fdinfo.size>fdinfo.pos*1.0001 && fdinfo.size > max_size) {
             biggest_fd = fdinfo;
             max_size = fdinfo.size;
         }
